@@ -328,9 +328,8 @@ public class TableroVisual {
 		
 		JLabel Tablero = new JLabel("");
 		Tablero.setIcon(new ImageIcon("C:\\Users\\danie\\Desktop\\tateti.png"));
-		Tablero.setBounds(111, 106, 219, 203);
+		Tablero.setBounds(111, 106, 219, 203);//	Tablero.setBounds(111, 106, 219, 203);
 		TaTeToro.getContentPane().add(Tablero);
-		
 		
 		
 	}
