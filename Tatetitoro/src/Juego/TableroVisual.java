@@ -53,9 +53,10 @@ public class TableroVisual {
 		jugar=new Jugar();
 		turno=jugar.elegirTurno();
 		cantTurnos=0;
-
 		ganoAlguien=false;
+		
 		TaTeToro = new JFrame();
+		TaTeToro.setResizable(false);
 		TaTeToro.setTitle("Ta-Te-Toro");
 		TaTeToro.setIconImage(Toolkit.getDefaultToolkit().getImage(TableroVisual.class.getResource("/Juego/img/icono.jpeg")));
 		TaTeToro.getContentPane().setBackground(Color.WHITE);
@@ -64,17 +65,20 @@ public class TableroVisual {
 		TaTeToro.getContentPane().setLayout(null);
 
 		JLabel labelTurno = new JLabel("Turno: "+turno);
+		labelTurno.setForeground(Color.WHITE);
 		labelTurno.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 		labelTurno.setBounds(36, 36, 85, 44);
 		TaTeToro.getContentPane().add(labelTurno);
 
 		JLabel labelGanador = new JLabel("");
+		labelGanador.setForeground(Color.WHITE);
 		labelGanador.setHorizontalAlignment(SwingConstants.CENTER);
-		labelGanador.setFont(new Font("Rockwell Condensed", Font.BOLD, 22));
+		labelGanador.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 22));
 		labelGanador.setBounds(245, 330, 148, 23);
 		TaTeToro.getContentPane().add(labelGanador);
 
 		JLabel contador = new JLabel("Turnos jugados: "+cantTurnos);
+		contador.setForeground(Color.WHITE);
 		contador.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 15));
 		contador.setBounds(10, 323, 137, 30);
 		TaTeToro.getContentPane().add(contador);
@@ -377,8 +381,13 @@ public class TableroVisual {
 
 		JLabel Tablero = new JLabel("");
 		Tablero.setIcon(new ImageIcon(TableroVisual.class.getResource("/Juego/img/tateti.png")));
-		Tablero.setBounds(111, 106, 219, 203);//	Tablero.setBounds(111, 106, 219, 203);
+		Tablero.setBounds(111, 106, 206, 199);//	Tablero.setBounds(111, 106, 219, 203);
 		TaTeToro.getContentPane().add(Tablero);
+		
+		JLabel Fondo = new JLabel("");
+		Fondo.setIcon(new ImageIcon(TableroVisual.class.getResource("/Juego/img/Sin t\u00EDtulo.png")));
+		Fondo.setBounds(0, 0, 449, 387);
+		TaTeToro.getContentPane().add(Fondo);
 
 
 
