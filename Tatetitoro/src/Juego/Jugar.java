@@ -28,29 +28,25 @@ public class Jugar {
 		tablero[f][c]=turno;
 	}
 	
-	boolean comprobarGanador(char w){
-		boolean a,b,c,d,e,f,g,h;
-		a=tablero[0][0]==w && tablero[0][1]==w && tablero[0][2]==w;//horizontales
-		b=tablero[1][0]==w && tablero[1][1]==w && tablero[1][2]==w;
-		c=tablero[2][0]==w && tablero[2][1]==w && tablero[2][2]==w;
-		d=tablero[0][0]==w && tablero[1][0]==w && tablero[2][0]==w;//verticales
-		e=tablero[0][1]==w && tablero[1][1]==w && tablero[2][1]==w;
-		f=tablero[0][2]==w && tablero[1][2]==w && tablero[2][2]==w;
-		g=tablero[0][0]==w && tablero[1][1]==w && tablero[2][2]==w;//diagonales
-		h=tablero[0][2]==w && tablero[1][1]==w && tablero[2][0]==w;
+	boolean comprobarGanador(char turno){
+		boolean a,b,c,d,e,f,g,h,i,j,k,l;
+		a=tablero[0][0]==turno && tablero[0][1]==turno && tablero[0][2]==turno;//horizontales
+		b=tablero[1][0]==turno && tablero[1][1]==turno && tablero[1][2]==turno;//
+		c=tablero[2][0]==turno && tablero[2][1]==turno && tablero[2][2]==turno;//
+		d=tablero[0][0]==turno && tablero[1][0]==turno && tablero[2][0]==turno;//verticales
+		e=tablero[0][1]==turno && tablero[1][1]==turno && tablero[2][1]==turno;//
+		f=tablero[0][2]==turno && tablero[1][2]==turno && tablero[2][2]==turno;//
+		g=tablero[0][0]==turno && tablero[1][1]==turno && tablero[2][2]==turno;//diagonales
+		h=tablero[0][2]==turno && tablero[1][1]==turno && tablero[2][0]==turno;//
+		i=tablero[0][1]==turno && tablero[1][2]==turno && tablero[2][0]==turno;//otras
+		j=tablero[0][1]==turno && tablero[1][0]==turno && tablero[2][2]==turno;
+		k=tablero[0][2]==turno && tablero[1][0]==turno && tablero[2][1]==turno;
+		l=tablero[0][0]==turno && tablero[1][2]==turno && tablero[2][1]==turno;
 		
-		return a||b||c||d||e||f||g||h;
+		
+		return a||b||c||d||e||f||g||h||i||j||k||l;
 	}
 	
-	boolean terminado(){
-		for (int i=0;i<3;i++){
-			for(int j=0;j<3;j++){
-				if (tablero[i][j]=='*')
-					return false;
-			}
-		}
-		return true;
-	}
 	void mostrar(){
 		for (int i=0;i<3;i++){
 			for(int j=0;j<3;j++){
