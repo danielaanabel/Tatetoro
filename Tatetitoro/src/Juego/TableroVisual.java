@@ -15,7 +15,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
 
-public class TableroVisual2 {
+public class TableroVisual {
 
 	private JFrame TaTeToro;
 	private char turno;
@@ -29,7 +29,7 @@ public class TableroVisual2 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TableroVisual2 window = new TableroVisual2();
+					TableroVisual window = new TableroVisual();
 					window.TaTeToro.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class TableroVisual2 {
 	/**
 	 * Create the application.
 	 */
-	public TableroVisual2() {
+	public TableroVisual() {
 		initialize();
 	}
 
