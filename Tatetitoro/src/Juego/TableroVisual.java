@@ -19,6 +19,7 @@ public class TableroVisual {
 	JButton  [] botones=new JButton[9];
 	Jugar jugar;
 	boolean ganoAlguien;
+	int cantTurnos;
 
 	/**
 	 * Launch the application.
@@ -50,25 +51,32 @@ public class TableroVisual {
 		//codigo negocio
 		jugar=new Jugar();
 		turno=jugar.elegirTurno();
-		
+		cantTurnos=0;
+
 		ganoAlguien=false;
 		TaTeToro = new JFrame();
 		TaTeToro.getContentPane().setBackground(Color.WHITE);
 		TaTeToro.setBounds(100, 100, 465, 426);
 		TaTeToro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		TaTeToro.getContentPane().setLayout(null);
-		
+
 		JLabel labelTurno = new JLabel("turno: "+turno);
 		labelTurno.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 		labelTurno.setBounds(36, 36, 85, 44);
 		TaTeToro.getContentPane().add(labelTurno);
-		
+
 		JLabel labelGanador = new JLabel("");
 		labelGanador.setHorizontalAlignment(SwingConstants.CENTER);
 		labelGanador.setFont(new Font("Rockwell Condensed", Font.BOLD, 22));
-		labelGanador.setBounds(142, 330, 148, 23);
+		labelGanador.setBounds(245, 330, 148, 23);
 		TaTeToro.getContentPane().add(labelGanador);
-		
+
+		JLabel contador = new JLabel("Turnos jugados: "+cantTurnos);
+		contador.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 15));
+		contador.setBounds(10, 323, 137, 30);
+		TaTeToro.getContentPane().add(contador);
+
+
 		JButton Button_0 = new JButton("");
 		Button_0.addMouseListener(new MouseAdapter() {
 			@Override
@@ -83,9 +91,11 @@ public class TableroVisual {
 					if(jugar.comprobarGanador(turno)) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+turno);
-						}
+					}
 					turno=jugar.ProximoTurno(turno);
 					labelTurno.setText(" Turno: "+turno);
+					cantTurnos++;
+					contador.setText("Turnos jugados: "+cantTurnos);
 				}
 			}
 		});
@@ -95,7 +105,7 @@ public class TableroVisual {
 		Button_0.setBackground(Color.WHITE);
 		Button_0.setBounds(111, 111, 56, 51);
 		TaTeToro.getContentPane().add(Button_0);
-		
+
 		JButton Button_1 = new JButton("");
 		Button_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -110,11 +120,12 @@ public class TableroVisual {
 					if(jugar.comprobarGanador(turno)) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+turno);
-						}
+					}
 					turno=jugar.ProximoTurno(turno);
 					labelTurno.setText(" Turno: "+turno);
-					
-					}
+					cantTurnos++;
+					contador.setText("Turnos jugados: "+cantTurnos);
+				}
 			}
 		});
 		Button_1.setForeground(Color.BLACK);
@@ -123,7 +134,7 @@ public class TableroVisual {
 		Button_1.setBackground(Color.WHITE);
 		Button_1.setBounds(187, 111, 56, 51);
 		TaTeToro.getContentPane().add(Button_1);
-		
+
 		JButton Button_2 = new JButton("");
 		Button_2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -138,10 +149,12 @@ public class TableroVisual {
 					if(jugar.comprobarGanador(turno)) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+turno);
-						}	
-					labelTurno.setText(" Turno: "+turno);
-					turno=jugar.ProximoTurno(turno);
 					}
+					turno=jugar.ProximoTurno(turno);	
+					labelTurno.setText(" Turno: "+turno);
+					cantTurnos++;
+					contador.setText("Turnos jugados: "+cantTurnos);
+				}
 			}
 		});
 		Button_2.setForeground(Color.BLACK);
@@ -150,7 +163,7 @@ public class TableroVisual {
 		Button_2.setBackground(Color.WHITE);
 		Button_2.setBounds(257, 113, 52, 49);
 		TaTeToro.getContentPane().add(Button_2);
-		
+
 		JButton Button_3 = new JButton("");
 		Button_3.addMouseListener(new MouseAdapter() {
 			@Override
@@ -165,10 +178,12 @@ public class TableroVisual {
 					if(jugar.comprobarGanador(turno)) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+turno);
-						}
+					}
 					turno=jugar.ProximoTurno(turno);
 					labelTurno.setText(" Turno: "+turno);
-					}
+					cantTurnos++;
+					contador.setText("Turnos jugados: "+cantTurnos);
+				}
 			}
 		});
 		Button_3.setForeground(Color.BLACK);
@@ -177,7 +192,7 @@ public class TableroVisual {
 		Button_3.setBackground(Color.WHITE);
 		Button_3.setBounds(121, 181, 52, 51);
 		TaTeToro.getContentPane().add(Button_3);
-		
+
 		JButton Button_4 = new JButton("");
 		Button_4.addMouseListener(new MouseAdapter() {
 			@Override
@@ -189,13 +204,15 @@ public class TableroVisual {
 						Button_4.setText("O");
 					jugar.ponerFicha(1, 1,turno);
 					jugar.mostrar();
-					turno=jugar.ProximoTurno(turno);
 					if(jugar.comprobarGanador(turno)) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+turno);
-						}
-					labelTurno.setText(" Turno: "+turno);
 					}
+					turno=jugar.ProximoTurno(turno);
+					labelTurno.setText(" Turno: "+turno);
+					cantTurnos++;
+					contador.setText("Turnos jugados: "+cantTurnos);
+				}
 			}
 		});
 		Button_4.setForeground(Color.BLACK);
@@ -204,7 +221,7 @@ public class TableroVisual {
 		Button_4.setBackground(Color.WHITE);
 		Button_4.setBounds(187, 183, 52, 49);
 		TaTeToro.getContentPane().add(Button_4);
-		
+
 		JButton Button_5 = new JButton("");
 		Button_5.addMouseListener(new MouseAdapter() {
 			@Override
@@ -220,10 +237,12 @@ public class TableroVisual {
 					if(jugar.comprobarGanador(turno)) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+turno);
-						}
+					}
 					turno=jugar.ProximoTurno(turno);
 					labelTurno.setText(" Turno: "+turno);
-					}
+					cantTurnos++;
+					contador.setText("Turnos jugados: "+cantTurnos);
+				}
 			}
 		});
 		Button_5.setForeground(Color.BLACK);
@@ -232,7 +251,7 @@ public class TableroVisual {
 		Button_5.setBackground(Color.WHITE);
 		Button_5.setBounds(253, 183, 56, 49);
 		TaTeToro.getContentPane().add(Button_5);
-		
+
 		JButton Button_6 = new JButton("");
 		Button_6.addMouseListener(new MouseAdapter() {
 			@Override
@@ -247,10 +266,12 @@ public class TableroVisual {
 					if(jugar.comprobarGanador(turno)) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+turno);
-						}
+					}
 					turno=jugar.ProximoTurno(turno);
 					labelTurno.setText(" Turno: "+turno);
-					}
+					cantTurnos++;
+					contador.setText("Turnos jugados: "+cantTurnos);
+				}
 			}
 		});
 		Button_6.setForeground(Color.BLACK);
@@ -259,7 +280,7 @@ public class TableroVisual {
 		Button_6.setBackground(Color.WHITE);
 		Button_6.setBounds(115, 246, 52, 51);
 		TaTeToro.getContentPane().add(Button_6);
-		
+
 		JButton Button_7 = new JButton("");
 		Button_7.addMouseListener(new MouseAdapter() {
 			@Override
@@ -274,10 +295,12 @@ public class TableroVisual {
 					if(jugar.comprobarGanador(turno)) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+turno);
-						}
+					}
 					turno=jugar.ProximoTurno(turno);
 					labelTurno.setText(" Turno: "+turno);
-					}
+					cantTurnos++;
+					contador.setText("Turnos jugados: "+cantTurnos);
+				}
 			}
 		});
 		Button_7.setForeground(Color.BLACK);
@@ -286,7 +309,7 @@ public class TableroVisual {
 		Button_7.setBackground(Color.WHITE);
 		Button_7.setBounds(187, 243, 52, 51);
 		TaTeToro.getContentPane().add(Button_7);
-		
+
 		JButton Button_8 = new JButton("");
 		Button_8.addMouseListener(new MouseAdapter() {
 			@Override
@@ -301,11 +324,12 @@ public class TableroVisual {
 					if(jugar.comprobarGanador(turno)) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+turno);
-						}
+					}
 					turno=jugar.ProximoTurno(turno);
 					labelTurno.setText(" Turno: "+turno);
-					
-					}
+					cantTurnos++;
+					contador.setText("Turnos jugados: "+cantTurnos);
+				}
 			}
 		});
 		Button_8.setForeground(Color.BLACK);
@@ -314,7 +338,7 @@ public class TableroVisual {
 		Button_8.setBackground(Color.WHITE);
 		Button_8.setBounds(253, 246, 56, 51);
 		TaTeToro.getContentPane().add(Button_8);
-		
+
 		botones[0]=Button_0;
 		botones[1]=Button_1;
 		botones[2]=Button_2;
@@ -324,7 +348,7 @@ public class TableroVisual {
 		botones[6]=Button_6;
 		botones[7]=Button_7;
 		botones[8]=Button_8;
-		
+
 		JButton btnNewButton = new JButton("Reiniciar");
 		btnNewButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 19));
 		btnNewButton.setBackground(Color.PINK);
@@ -334,23 +358,26 @@ public class TableroVisual {
 				jugar=new Jugar();
 				turno=jugar.elegirTurno();
 				ganoAlguien=false;
+				cantTurnos=0;
+				contador.setText("Turnos jugados: "+cantTurnos);
 				labelTurno.setText("Turno: "+turno);
 				labelGanador.setText("");
+
 				for(int i=0;i<botones.length;i++) {
 					botones[i].setText("");
-				}
-				
+				}		
 			}
 		});
 		btnNewButton.setBounds(317, 47, 111, 33);
 		TaTeToro.getContentPane().add(btnNewButton);
-		
-		
+
+
 		JLabel Tablero = new JLabel("");
 		Tablero.setIcon(new ImageIcon(TableroVisual.class.getResource("/Juego/img/tateti.png")));
 		Tablero.setBounds(111, 106, 219, 203);//	Tablero.setBounds(111, 106, 219, 203);
 		TaTeToro.getContentPane().add(Tablero);
-		
-		
+
+
+
 	}
 }
