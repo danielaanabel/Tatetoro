@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
+import java.awt.Toolkit;
 
 
 public class TableroVisual {
@@ -55,12 +56,14 @@ public class TableroVisual {
 
 		ganoAlguien=false;
 		TaTeToro = new JFrame();
+		TaTeToro.setTitle("Ta-Te-Toro");
+		TaTeToro.setIconImage(Toolkit.getDefaultToolkit().getImage(TableroVisual.class.getResource("/Juego/img/icono.jpeg")));
 		TaTeToro.getContentPane().setBackground(Color.WHITE);
 		TaTeToro.setBounds(100, 100, 465, 426);
 		TaTeToro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		TaTeToro.getContentPane().setLayout(null);
 
-		JLabel labelTurno = new JLabel("turno: "+turno);
+		JLabel labelTurno = new JLabel("Turno: "+turno);
 		labelTurno.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
 		labelTurno.setBounds(36, 36, 85, 44);
 		TaTeToro.getContentPane().add(labelTurno);
@@ -93,7 +96,7 @@ public class TableroVisual {
 						labelGanador.setText("GANO: "+turno);
 					}
 					turno=jugar.ProximoTurno(turno);
-					labelTurno.setText(" Turno: "+turno);
+					labelTurno.setText("Turno: "+turno);
 					cantTurnos++;
 					contador.setText("Turnos jugados: "+cantTurnos);
 				}
@@ -122,7 +125,7 @@ public class TableroVisual {
 						labelGanador.setText("GANO: "+turno);
 					}
 					turno=jugar.ProximoTurno(turno);
-					labelTurno.setText(" Turno: "+turno);
+					labelTurno.setText("Turno: "+turno);
 					cantTurnos++;
 					contador.setText("Turnos jugados: "+cantTurnos);
 				}
@@ -151,7 +154,7 @@ public class TableroVisual {
 						labelGanador.setText("GANO: "+turno);
 					}
 					turno=jugar.ProximoTurno(turno);	
-					labelTurno.setText(" Turno: "+turno);
+					labelTurno.setText("Turno: "+turno);
 					cantTurnos++;
 					contador.setText("Turnos jugados: "+cantTurnos);
 				}
@@ -180,7 +183,7 @@ public class TableroVisual {
 						labelGanador.setText("GANO: "+turno);
 					}
 					turno=jugar.ProximoTurno(turno);
-					labelTurno.setText(" Turno: "+turno);
+					labelTurno.setText("Turno: "+turno);
 					cantTurnos++;
 					contador.setText("Turnos jugados: "+cantTurnos);
 				}
@@ -190,7 +193,7 @@ public class TableroVisual {
 		Button_3.setFont(new Font("Tahoma", Font.PLAIN, 36));
 		Button_3.setBorder(null);
 		Button_3.setBackground(Color.WHITE);
-		Button_3.setBounds(121, 181, 52, 51);
+		Button_3.setBounds(115, 181, 52, 51);
 		TaTeToro.getContentPane().add(Button_3);
 
 		JButton Button_4 = new JButton("");
@@ -209,7 +212,7 @@ public class TableroVisual {
 						labelGanador.setText("GANO: "+turno);
 					}
 					turno=jugar.ProximoTurno(turno);
-					labelTurno.setText(" Turno: "+turno);
+					labelTurno.setText("Turno: "+turno);
 					cantTurnos++;
 					contador.setText("Turnos jugados: "+cantTurnos);
 				}
@@ -239,7 +242,7 @@ public class TableroVisual {
 						labelGanador.setText("GANO: "+turno);
 					}
 					turno=jugar.ProximoTurno(turno);
-					labelTurno.setText(" Turno: "+turno);
+					labelTurno.setText("Turno: "+turno);
 					cantTurnos++;
 					contador.setText("Turnos jugados: "+cantTurnos);
 				}
@@ -268,7 +271,7 @@ public class TableroVisual {
 						labelGanador.setText("GANO: "+turno);
 					}
 					turno=jugar.ProximoTurno(turno);
-					labelTurno.setText(" Turno: "+turno);
+					labelTurno.setText("Turno: "+turno);
 					cantTurnos++;
 					contador.setText("Turnos jugados: "+cantTurnos);
 				}
@@ -297,7 +300,7 @@ public class TableroVisual {
 						labelGanador.setText("GANO: "+turno);
 					}
 					turno=jugar.ProximoTurno(turno);
-					labelTurno.setText(" Turno: "+turno);
+					labelTurno.setText("Turno: "+turno);
 					cantTurnos++;
 					contador.setText("Turnos jugados: "+cantTurnos);
 				}
@@ -326,7 +329,7 @@ public class TableroVisual {
 						labelGanador.setText("GANO: "+turno);
 					}
 					turno=jugar.ProximoTurno(turno);
-					labelTurno.setText(" Turno: "+turno);
+					labelTurno.setText("Turno: "+turno);
 					cantTurnos++;
 					contador.setText("Turnos jugados: "+cantTurnos);
 				}
