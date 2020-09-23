@@ -7,8 +7,8 @@ public class Jugar {
 	
 	
 	public Jugar(){
-		tablero=new char[3][3];//tablero con valores null(0)
-	}//
+		tablero=new char[3][3];//tablero vacio
+	}
 	
 	public char elegirTurno() {//quien juega primero
 		Random random=new Random();
@@ -22,7 +22,6 @@ public class Jugar {
 		else
 			return 'X';	
 	}
-	
 	
 	public void ponerFicha(int f, int c,char turno) {
 		tablero[f][c]=turno;
@@ -43,7 +42,6 @@ public class Jugar {
 		k=tablero[0][2]==turno && tablero[1][0]==turno && tablero[2][1]==turno;
 		l=tablero[0][0]==turno && tablero[1][2]==turno && tablero[2][1]==turno;
 		
-		
 		return a||b||c||d||e||f||g||h||i||j||k||l;
 	}
 	
@@ -58,6 +56,5 @@ public class Jugar {
 		}System.out.println();
 	}
 	
-
 
 }
