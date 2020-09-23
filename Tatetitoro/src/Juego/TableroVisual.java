@@ -385,7 +385,7 @@ public class TableroVisual {
 		TaTeToro.getContentPane().add(Tablero);
 		
 		JLabel Fondo = new JLabel("");
-		Fondo.setIcon(new ImageIcon(TableroVisual.class.getResource("/Juego/img/Sin t\u00EDtulo.png")));
+		Fondo.setIcon(new ImageIcon(TableroVisual.class.getResource("/Juego/img/fondo.png")));
 		Fondo.setBounds(0, 0, 449, 387);
 		TaTeToro.getContentPane().add(Fondo);
 
