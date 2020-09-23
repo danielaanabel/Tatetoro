@@ -1,13 +1,9 @@
 package Juego;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
 import javax.swing.ImageIcon;
-
-
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -327,7 +323,7 @@ public class TableroVisual {
 		
 		
 		JLabel Tablero = new JLabel("");
-		Tablero.setIcon(new ImageIcon("C:\\Users\\danie\\Desktop\\tateti.png"));
+		Tablero.setIcon(new ImageIcon(TableroVisual.class.getResource("/Juego/img/tateti.png")));
 		Tablero.setBounds(111, 106, 219, 203);//	Tablero.setBounds(111, 106, 219, 203);
 		TaTeToro.getContentPane().add(Tablero);
 		

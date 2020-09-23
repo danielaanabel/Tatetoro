@@ -28,6 +28,7 @@ public class Jugar {
 	}
 	
 	boolean comprobarGanador(char turno){
+		
 		boolean a,b,c,d,e,f,g,h,i,j,k,l;
 		a=tablero[0][0]==turno && tablero[0][1]==turno && tablero[0][2]==turno;//horizontales
 		b=tablero[1][0]==turno && tablero[1][1]==turno && tablero[1][2]==turno;//
