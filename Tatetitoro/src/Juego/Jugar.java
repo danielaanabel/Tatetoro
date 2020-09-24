@@ -4,27 +4,45 @@ import java.util.Random;
 
 public class Jugar {
 	char [][] tablero;
+	private char turno;
+	private int cantTurnos;
 	
 	
 	public Jugar(){
 		tablero=new char[3][3];//tablero vacio
+		cantTurnos=0;
 	}
 	
-	public char elegirTurno() {//quien juega primero
+	public void elegirTurno() {//quien juega primero
 		Random random=new Random();
 		int numRandom=random.nextInt(2);
-		return numRandom==0?'O':'X'; 
+		if(numRandom==0)
+			turno='O';
+		else 
+			turno='X';
+//		return numRandom==0?'O':'X'; 
 	}
 	
-	char ProximoTurno(char t){
-		if (t=='X')
-			return 'O';
+	void ProximoTurno(){
+		if (turno=='X')
+			turno='O';
+//			return 'O';
 		else
-			return 'X';	
+			turno='X';
+//			return 'X';	
+	}
+	
+	char turnoActual() {
+		return turno;
+	}
+	
+	int turnosJugados(){
+		return cantTurnos;
 	}
 	
 	public void ponerFicha(int f, int c,char turno) {
 		tablero[f][c]=turno;
+		cantTurnos++;
 	}
 	
 	boolean comprobarGanador(char turno){
