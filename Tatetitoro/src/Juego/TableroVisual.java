@@ -11,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
+import java.awt.Cursor;
 
 
 public class TableroVisual {
@@ -84,6 +85,7 @@ public class TableroVisual {
 
 
 		JButton Button_0 = new JButton("");
+		Button_0.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		Button_0.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -93,7 +95,6 @@ public class TableroVisual {
 					else
 						Button_0.setText("O");
 					jugar.ponerFicha(0, 0);
-					jugar.mostrar();
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+jugar.turnoActual());
@@ -121,7 +122,6 @@ public class TableroVisual {
 					else
 						Button_1.setText("O");
 					jugar.ponerFicha(0, 1);
-					jugar.mostrar();
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+jugar.turnoActual());
@@ -150,7 +150,7 @@ public class TableroVisual {
 					else
 						Button_2.setText("O");
 					jugar.ponerFicha(0, 2);
-					jugar.mostrar();
+
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+jugar.turnoActual());
@@ -178,7 +178,7 @@ public class TableroVisual {
 					else
 						Button_3.setText("O");
 					jugar.ponerFicha(1, 0);
-					jugar.mostrar();
+				
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+jugar.turnoActual());
@@ -207,7 +207,7 @@ public class TableroVisual {
 					else
 						Button_4.setText("O");
 					jugar.ponerFicha(1, 1);
-					jugar.mostrar();
+					
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+jugar.turnoActual());
@@ -230,14 +230,13 @@ public class TableroVisual {
 		Button_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				jugar.mostrar();
 				if(Button_5.getText().equals("") && ganoAlguien!=true) {
 					if(jugar.turnoActual()=='X')
 						Button_5.setText("X");
 					else
 						Button_5.setText("O");
 					jugar.ponerFicha(1, 2);
-					jugar.mostrar();
+					
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+jugar.turnoActual());
@@ -266,7 +265,7 @@ public class TableroVisual {
 					else
 						Button_6.setText("O");
 					jugar.ponerFicha(2, 0);
-					jugar.mostrar();
+					
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+jugar.turnoActual());
@@ -295,7 +294,7 @@ public class TableroVisual {
 					else
 						Button_7.setText("O");
 					jugar.ponerFicha(2, 1);
-					jugar.mostrar();
+					
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+jugar.turnoActual());
@@ -324,7 +323,7 @@ public class TableroVisual {
 					else
 						Button_8.setText("O");
 					jugar.ponerFicha(2, 2);
-					jugar.mostrar();
+					
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
 						labelGanador.setText("GANO: "+jugar.turnoActual());
@@ -353,10 +352,11 @@ public class TableroVisual {
 		botones[8]=Button_8;
 		
 
-		JButton btnNewButton = new JButton("Reiniciar");
-		btnNewButton.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 19));
-		btnNewButton.setBackground(Color.PINK);
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		JButton botonReiniciar = new JButton("Reiniciar");
+		botonReiniciar.setVerifyInputWhenFocusTarget(false);
+		botonReiniciar.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 19));
+		botonReiniciar.setBackground(Color.PINK);
+		botonReiniciar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				jugar=new Jugar();
@@ -371,12 +371,12 @@ public class TableroVisual {
 				}		
 			}
 		});
-		btnNewButton.setBounds(317, 47, 111, 33);
-		TaTeToro.getContentPane().add(btnNewButton);
+		botonReiniciar.setBounds(317, 47, 111, 33);
+		TaTeToro.getContentPane().add(botonReiniciar);
 
 		JLabel Tablero = new JLabel("");
 		Tablero.setIcon(new ImageIcon(TableroVisual.class.getResource("/Juego/img/tateti.png")));
-		Tablero.setBounds(111, 106, 206, 199);//	Tablero.setBounds(111, 106, 219, 203);
+		Tablero.setBounds(111, 106, 206, 199);
 		TaTeToro.getContentPane().add(Tablero);
 		
 		JLabel Fondo = new JLabel("");

@@ -6,13 +6,13 @@ public class Jugar {
 	char [][] tablero;
 	private char turno;
 	private int cantTurnos;
-	
-	
+
+
 	public Jugar(){
 		tablero=new char[3][3];//tablero vacio
 		cantTurnos=0;
 	}
-	
+
 	public void turnoInicial() {//quien juega primero
 		Random random=new Random();
 		int numRandom=random.nextInt(2);
@@ -21,27 +21,29 @@ public class Jugar {
 		else 
 			turno='X'; 
 	}
-	
+
 	void ProximoTurno(){
 		if (turno=='X')
 			turno='O';
 		else
 			turno='X';
 	}
-	
+
 	char turnoActual() {
 		return turno;
 	}
-	
+
 	int turnosJugados(){
 		return cantTurnos;
 	}
-	
+
 	public void ponerFicha(int f, int c) {
-		tablero[f][c]=turno;
-		cantTurnos++;
+		if(!comprobarGanador()) {
+			tablero[f][c]=turno;
+			cantTurnos++;
+			}
 	}
-	
+
 	boolean comprobarGanador(){
 		boolean a,b,c,d,e,f,g,h,i,j,k,l;
 		a=tablero[0][0]==turno && tablero[0][1]==turno && tablero[0][2]==turno;//horizontales
@@ -56,20 +58,10 @@ public class Jugar {
 		j=tablero[0][1]==turno && tablero[1][0]==turno && tablero[2][2]==turno;//
 		k=tablero[0][2]==turno && tablero[1][0]==turno && tablero[2][1]==turno;//
 		l=tablero[0][0]==turno && tablero[1][2]==turno && tablero[2][1]==turno;//
-		
+
 		return a||b||c||d||e||f||g||h||i||j||k||l;
 	}
-	
-	void mostrar(){
-		for (int i=0;i<3;i++){
-			for(int j=0;j<3;j++){
-				System.out.print(tablero[i][j]);
-				if (j<2){
-					System.out.print("|");
-				}
-			}System.out.println();
-		}System.out.println();
-	}
-	
+
+
 
 }
