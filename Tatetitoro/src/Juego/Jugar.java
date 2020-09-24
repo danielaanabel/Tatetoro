@@ -13,7 +13,7 @@ public class Jugar {
 		cantTurnos=0;
 	}
 	
-	public void elegirTurno() {//quien juega primero
+	public void turnoInicial() {//quien juega primero
 		Random random=new Random();
 		int numRandom=random.nextInt(2);
 		if(numRandom==0)

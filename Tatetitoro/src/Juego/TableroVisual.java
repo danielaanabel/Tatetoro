@@ -51,7 +51,7 @@ public class TableroVisual {
 	private void initialize() {
 		//codigo negocio
 		jugar=new Jugar();
-		jugar.elegirTurno();
+		jugar.turnoInicial();
 		ganoAlguien=false;//
 		
 		TaTeToro = new JFrame();
@@ -78,7 +78,7 @@ public class TableroVisual {
 
 		JLabel contador = new JLabel("Turnos jugados: "+jugar.turnosJugados());
 		contador.setForeground(Color.WHITE);
-		contador.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 15));
+		contador.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
 		contador.setBounds(10, 323, 137, 30);
 		TaTeToro.getContentPane().add(contador);
 
@@ -360,7 +360,7 @@ public class TableroVisual {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				jugar=new Jugar();
-				jugar.elegirTurno();
+				jugar.turnoInicial();
 				ganoAlguien=false;
 				contador.setText("Turnos jugados: "+jugar.turnosJugados());
 				labelTurno.setText("Turno: "+jugar.turnoActual());
@@ -373,7 +373,6 @@ public class TableroVisual {
 		});
 		btnNewButton.setBounds(317, 47, 111, 33);
 		TaTeToro.getContentPane().add(btnNewButton);
-
 
 		JLabel Tablero = new JLabel("");
 		Tablero.setIcon(new ImageIcon(TableroVisual.class.getResource("/Juego/img/tateti.png")));
