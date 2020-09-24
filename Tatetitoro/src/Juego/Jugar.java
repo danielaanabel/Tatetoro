@@ -19,17 +19,14 @@ public class Jugar {
 		if(numRandom==0)
 			turno='O';
 		else 
-			turno='X';
-//		return numRandom==0?'O':'X'; 
+			turno='X'; 
 	}
 	
 	void ProximoTurno(){
 		if (turno=='X')
 			turno='O';
-//			return 'O';
 		else
 			turno='X';
-//			return 'X';	
 	}
 	
 	char turnoActual() {
@@ -40,12 +37,12 @@ public class Jugar {
 		return cantTurnos;
 	}
 	
-	public void ponerFicha(int f, int c,char turno) {
+	public void ponerFicha(int f, int c) {
 		tablero[f][c]=turno;
 		cantTurnos++;
 	}
 	
-	boolean comprobarGanador(char turno){
+	boolean comprobarGanador(){
 		boolean a,b,c,d,e,f,g,h,i,j,k,l;
 		a=tablero[0][0]==turno && tablero[0][1]==turno && tablero[0][2]==turno;//horizontales
 		b=tablero[1][0]==turno && tablero[1][1]==turno && tablero[1][2]==turno;//
@@ -55,10 +52,10 @@ public class Jugar {
 		f=tablero[0][2]==turno && tablero[1][2]==turno && tablero[2][2]==turno;//
 		g=tablero[0][0]==turno && tablero[1][1]==turno && tablero[2][2]==turno;//diagonales
 		h=tablero[0][2]==turno && tablero[1][1]==turno && tablero[2][0]==turno;//
-		i=tablero[0][1]==turno && tablero[1][2]==turno && tablero[2][0]==turno;//otras
-		j=tablero[0][1]==turno && tablero[1][0]==turno && tablero[2][2]==turno;
-		k=tablero[0][2]==turno && tablero[1][0]==turno && tablero[2][1]==turno;
-		l=tablero[0][0]==turno && tablero[1][2]==turno && tablero[2][1]==turno;
+		i=tablero[0][1]==turno && tablero[1][2]==turno && tablero[2][0]==turno;//otras diag
+		j=tablero[0][1]==turno && tablero[1][0]==turno && tablero[2][2]==turno;//
+		k=tablero[0][2]==turno && tablero[1][0]==turno && tablero[2][1]==turno;//
+		l=tablero[0][0]==turno && tablero[1][2]==turno && tablero[2][1]==turno;//
 		
 		return a||b||c||d||e||f||g||h||i||j||k||l;
 	}
