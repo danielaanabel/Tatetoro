@@ -38,7 +38,7 @@ public class Jugar {
 	}
 
 	public void ponerFicha(int f, int c) {
-		if(!comprobarGanador()) {
+		if(!comprobarGanador() && tablero[f][c]==0) {
 			tablero[f][c]=turno;
 			cantTurnos++;
 			}
@@ -61,7 +61,6 @@ public class Jugar {
 
 		return a||b||c||d||e||f||g||h||i||j||k||l;
 	}
-
 
 
 }

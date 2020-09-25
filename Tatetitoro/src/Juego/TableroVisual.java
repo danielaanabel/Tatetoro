@@ -383,6 +383,7 @@ public class TableroVisual {
 		Fondo.setIcon(new ImageIcon(TableroVisual.class.getResource("/Juego/img/fondo.png")));
 		Fondo.setBounds(0, 0, 449, 387);
 		TaTeToro.getContentPane().add(Fondo);
-
+		
+		 
 	}
 }
