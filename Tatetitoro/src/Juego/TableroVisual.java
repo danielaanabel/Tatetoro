@@ -84,6 +84,8 @@ public class TableroVisual {
 
 
 		JButton Button_0 = new JButton("");
+		Button_0.setContentAreaFilled(false);
+		Button_0.setFocusPainted(false);
 		Button_0.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		Button_0.addMouseListener(new MouseAdapter() {
 			@Override
@@ -115,6 +117,8 @@ public class TableroVisual {
 		TaTeToro.getContentPane().add(Button_0);
 
 		JButton Button_1 = new JButton("");
+		Button_1.setFocusPainted(false);
+		Button_1.setContentAreaFilled(false);
 		Button_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -147,6 +151,8 @@ public class TableroVisual {
 		TaTeToro.getContentPane().add(Button_1);
 
 		JButton Button_2 = new JButton("");
+		Button_2.setFocusPainted(false);
+		Button_2.setContentAreaFilled(false);
 		Button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -179,6 +185,8 @@ public class TableroVisual {
 		TaTeToro.getContentPane().add(Button_2);
 
 		JButton Button_3 = new JButton("");
+		Button_3.setFocusPainted(false);
+		Button_3.setContentAreaFilled(false);
 		Button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -212,6 +220,8 @@ public class TableroVisual {
 		TaTeToro.getContentPane().add(Button_3);
 
 		JButton Button_4 = new JButton("");
+		Button_4.setFocusPainted(false);
+		Button_4.setContentAreaFilled(false);
 		Button_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -245,6 +255,8 @@ public class TableroVisual {
 		TaTeToro.getContentPane().add(Button_4);
 
 		JButton Button_5 = new JButton("");
+		Button_5.setFocusPainted(false);
+		Button_5.setContentAreaFilled(false);
 		Button_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -278,6 +290,8 @@ public class TableroVisual {
 		TaTeToro.getContentPane().add(Button_5);
 
 		JButton Button_6 = new JButton("");
+		Button_6.setFocusPainted(false);
+		Button_6.setContentAreaFilled(false);
 		Button_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -311,6 +325,8 @@ public class TableroVisual {
 		TaTeToro.getContentPane().add(Button_6);
 
 		JButton Button_7 = new JButton("");
+		Button_7.setFocusPainted(false);
+		Button_7.setContentAreaFilled(false);
 		Button_7.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -344,6 +360,8 @@ public class TableroVisual {
 		TaTeToro.getContentPane().add(Button_7);
 
 		JButton Button_8 = new JButton("");
+		Button_8.setFocusPainted(false);
+		Button_8.setContentAreaFilled(false);
 		Button_8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
