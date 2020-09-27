@@ -405,6 +405,7 @@ public class TableroVisual {
 
 
 		JButton botonReiniciar = new JButton("Reiniciar");
+		botonReiniciar.setFocusPainted(false);
 		botonReiniciar.setVerifyInputWhenFocusTarget(false);
 		botonReiniciar.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 19));
 		botonReiniciar.setBackground(Color.PINK);
