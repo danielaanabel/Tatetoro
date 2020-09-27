@@ -3,7 +3,7 @@ package Juego;
 import java.util.Random;
 
 public class Jugar {
-	char [][] tablero;
+	private char [][] tablero;
 	private char turno;
 	private int cantTurnos;
 
