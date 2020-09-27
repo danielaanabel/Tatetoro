@@ -108,7 +108,7 @@ public class TableroVisual {
 				}
 			}
 		});
-		Button_0.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		Button_0.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 40));
 		Button_0.setBorder(null);
 		Button_0.setBackground(Color.WHITE);
 		Button_0.setBounds(111, 111, 56, 51);
@@ -140,7 +140,7 @@ public class TableroVisual {
 				}
 			}
 		});
-		Button_1.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		Button_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 40));
 		Button_1.setBorder(null);
 		Button_1.setBackground(Color.WHITE);
 		Button_1.setBounds(187, 111, 56, 51);
@@ -172,7 +172,7 @@ public class TableroVisual {
 				}
 			}
 		});
-		Button_2.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		Button_2.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 40));
 		Button_2.setBorder(null);
 		Button_2.setBackground(Color.WHITE);
 		Button_2.setBounds(257, 113, 52, 49);
@@ -205,7 +205,7 @@ public class TableroVisual {
 				}
 			}
 		});
-		Button_3.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		Button_3.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 40));
 		Button_3.setBorder(null);
 		Button_3.setBackground(Color.WHITE);
 		Button_3.setBounds(115, 181, 52, 51);
@@ -238,7 +238,7 @@ public class TableroVisual {
 				}
 			}
 		});
-		Button_4.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		Button_4.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 40));
 		Button_4.setBorder(null);
 		Button_4.setBackground(Color.WHITE);
 		Button_4.setBounds(187, 183, 52, 49);
@@ -271,7 +271,7 @@ public class TableroVisual {
 				}
 			}
 		});
-		Button_5.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		Button_5.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 40));
 		Button_5.setBorder(null);
 		Button_5.setBackground(Color.WHITE);
 		Button_5.setBounds(253, 183, 56, 49);
@@ -304,7 +304,7 @@ public class TableroVisual {
 				}
 			}
 		});
-		Button_6.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		Button_6.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 40));
 		Button_6.setBorder(null);
 		Button_6.setBackground(Color.WHITE);
 		Button_6.setBounds(115, 246, 52, 51);
@@ -337,7 +337,7 @@ public class TableroVisual {
 				}
 			}
 		});
-		Button_7.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		Button_7.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 40));
 		Button_7.setBorder(null);
 		Button_7.setBackground(Color.WHITE);
 		Button_7.setBounds(187, 243, 52, 51);
@@ -369,7 +369,7 @@ public class TableroVisual {
 				}
 			}
 		});
-		Button_8.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		Button_8.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 40));
 		Button_8.setBorder(null);
 		Button_8.setBackground(Color.WHITE);
 		Button_8.setBounds(253, 246, 56, 51);
