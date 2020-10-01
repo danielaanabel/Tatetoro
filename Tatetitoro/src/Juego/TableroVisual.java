@@ -1,6 +1,6 @@
 package Juego;
 
-import java.awt.EventQueue;
+//import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -12,47 +12,36 @@ import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
 import java.awt.Cursor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class TableroVisual {
 
 	private JFrame TaTeToro;
-	JButton  [] botones=new JButton[9];
 	Jugar jugar;
-	boolean ganoAlguien;
+	private boolean ganoAlguien;
+	private String jugadorX;
+	private String jugadorO;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TableroVisual window = new TableroVisual();
-					window.TaTeToro.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public TableroVisual() {
+	public TableroVisual(String jugadorX,String JugadorO) {
+		setJugadorX(jugadorX);
+		setJugadorO(JugadorO);
+		ganoAlguien=false;
+		jugar=new Jugar();
+		jugar.turnoInicial();
 		initialize();
+		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-
-		jugar=new Jugar();
-		jugar.turnoInicial();
-
-		ganoAlguien=false;
 
 		TaTeToro = new JFrame();
 		TaTeToro.setResizable(false);
@@ -62,25 +51,32 @@ public class TableroVisual {
 		TaTeToro.setBounds(100, 100, 465, 426);
 		TaTeToro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		TaTeToro.getContentPane().setLayout(null);
+		TaTeToro.setLocationRelativeTo(null);
 
 		JLabel labelTurno = new JLabel("Turno: "+jugar.turnoActual());
 		labelTurno.setForeground(Color.WHITE);
 		labelTurno.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
-		labelTurno.setBounds(36, 36, 85, 44);
+		labelTurno.setBounds(39, 11, 85, 30);
 		TaTeToro.getContentPane().add(labelTurno);
 
 		JLabel labelGanador = new JLabel("");
 		labelGanador.setForeground(Color.WHITE);
 		labelGanador.setHorizontalAlignment(SwingConstants.CENTER);
 		labelGanador.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 22));
-		labelGanador.setBounds(245, 330, 148, 23);
+		labelGanador.setBounds(194, 330, 243, 23);
 		TaTeToro.getContentPane().add(labelGanador);
 
 		JLabel contador = new JLabel("Turnos jugados: "+jugar.turnosJugados());
 		contador.setForeground(Color.WHITE);
-		contador.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
-		contador.setBounds(10, 323, 137, 30);
+		contador.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+		contador.setBounds(10, 323, 173, 30);
 		TaTeToro.getContentPane().add(contador);
+		
+		JLabel jugador = new JLabel("Juega: "+quienJuega(jugar.turnoActual()));
+		jugador.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 20));
+		jugador.setForeground(Color.WHITE);
+		jugador.setBounds(39, 52, 270, 30);
+		TaTeToro.getContentPane().add(jugador);
 
 
 		JButton Button_0 = new JButton("");
@@ -102,11 +98,12 @@ public class TableroVisual {
 					jugar.ponerFicha(0, 0);
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
-						labelGanador.setText("GANO: "+jugar.turnoActual());
+						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
+					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -127,7 +124,7 @@ public class TableroVisual {
 						Button_1.setText("X");
 						Button_1.setForeground(Color.BLUE);
 					}
-						
+
 					else {
 						Button_1.setText("O");
 						Button_1.setForeground(Color.RED);
@@ -136,11 +133,12 @@ public class TableroVisual {
 
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
-						labelGanador.setText("GANO: "+jugar.turnoActual());
+						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
+					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -164,17 +162,18 @@ public class TableroVisual {
 					else {
 						Button_2.setText("O");
 						Button_2.setForeground(Color.RED);
-						
+
 					}
 					jugar.ponerFicha(0, 2);
 
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
-						labelGanador.setText("GANO: "+jugar.turnoActual());
+						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();	
 					labelTurno.setText("Turno: "+jugar.turnoActual());
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
+					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -198,18 +197,18 @@ public class TableroVisual {
 					else {
 						Button_3.setText("O");
 						Button_3.setForeground(Color.RED);
-						
+
 					}
 					jugar.ponerFicha(1, 0);
 
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
-						labelGanador.setText("GANO: "+jugar.turnoActual());
+						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
-
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
+					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -233,18 +232,18 @@ public class TableroVisual {
 					else {
 						Button_4.setText("O");
 						Button_4.setForeground(Color.RED);
-						
+
 					}
 					jugar.ponerFicha(1, 1);
 
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
-						labelGanador.setText("GANO: "+jugar.turnoActual());
+						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
-
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
+					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -268,18 +267,18 @@ public class TableroVisual {
 					else {
 						Button_5.setText("O");
 						Button_5.setForeground(Color.RED);
-						
+
 					}
 					jugar.ponerFicha(1, 2);
 
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
-						labelGanador.setText("GANO: "+jugar.turnoActual());
+						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
-
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
+					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -303,18 +302,18 @@ public class TableroVisual {
 					else {
 						Button_6.setText("O");
 						Button_6.setForeground(Color.RED);
-						
+
 					}
 					jugar.ponerFicha(2, 0);
 
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
-						labelGanador.setText("GANO: "+jugar.turnoActual());
+						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
-
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
+					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -338,18 +337,18 @@ public class TableroVisual {
 					else {
 						Button_7.setText("O");
 						Button_7.setForeground(Color.RED);
-						
+
 					}
 					jugar.ponerFicha(2, 1);
 
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
-						labelGanador.setText("GANO: "+jugar.turnoActual());
+						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
-
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
+					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -373,17 +372,18 @@ public class TableroVisual {
 					else {
 						Button_8.setText("O");
 						Button_8.setForeground(Color.RED);
-						
+
 					}
 					jugar.ponerFicha(2, 2);
 
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
-						labelGanador.setText("GANO: "+jugar.turnoActual());
+						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
+					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -393,35 +393,21 @@ public class TableroVisual {
 		Button_8.setBounds(253, 246, 56, 51);
 		TaTeToro.getContentPane().add(Button_8);
 
-		botones[0]=Button_0;
-		botones[1]=Button_1;
-		botones[2]=Button_2;
-		botones[3]=Button_3;
-		botones[4]=Button_4;
-		botones[5]=Button_5;
-		botones[6]=Button_6;
-		botones[7]=Button_7;
-		botones[8]=Button_8;
-
 
 		JButton botonReiniciar = new JButton("Reiniciar");
 		botonReiniciar.setFocusPainted(false);
 		botonReiniciar.setVerifyInputWhenFocusTarget(false);
 		botonReiniciar.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 19));
 		botonReiniciar.setBackground(Color.PINK);
-		botonReiniciar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				jugar=new Jugar();
-				jugar.turnoInicial();
-				ganoAlguien=false;
-				contador.setText("Turnos jugados: "+jugar.turnosJugados());
-				labelTurno.setText("Turno: "+jugar.turnoActual());
-				labelGanador.setText("");
-
-				for(int i=0;i<botones.length;i++) {
-					botones[i].setText("");
-				}		
+		botonReiniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TaTeToro.setVisible(false);
+				try {
+					PantallaInicio inicio=new PantallaInicio();
+					inicio.getPantallaInicial().setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		botonReiniciar.setBounds(317, 47, 111, 33);
@@ -439,4 +425,29 @@ public class TableroVisual {
 
 
 	}
+	
+	public String quienJuega(char t) {
+		return t=='X'?jugadorX:jugadorO;
+	}
+
+	public JFrame getTaTeToro() {
+		return TaTeToro;
+	}
+
+	public String getJugadorX() {
+		return jugadorX;
+	}
+
+	public void setJugadorX(String jugadorX) {
+		this.jugadorX = jugadorX;
+	}
+
+	public String getJugadorO() {
+		return jugadorO;
+	}
+
+	public void setJugadorO(String jugadorO) {
+		this.jugadorO = jugadorO;
+	}
+	
 }
