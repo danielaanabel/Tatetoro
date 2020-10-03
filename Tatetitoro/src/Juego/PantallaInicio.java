@@ -12,13 +12,15 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
 import java.awt.Toolkit;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PantallaInicio {
 
 	private JFrame pantallaInicial;
 	private JTextField jugadorX;
 	private JTextField jugadorO;
-
+	private JLabel aviso;
 
 	/**
 	 * Launch the application.
@@ -48,6 +50,7 @@ public class PantallaInicio {
 	 */
 	private void initialize() {
 		pantallaInicial = new JFrame();
+		pantallaInicial.setTitle("Ta-Te-Toro");
 		pantallaInicial.setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaInicio.class.getResource("/Juego/img/icono.jpeg")));
 		pantallaInicial.setResizable(false);
 		pantallaInicial.setBounds(100, 100, 465, 426);
@@ -69,6 +72,13 @@ public class PantallaInicio {
 		pantallaInicial.getContentPane().add(jugador2);
 
 		jugadorX = new JTextField();
+		jugadorX.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()==KeyEvent.VK_ENTER)
+					verificarInicio();
+			}
+		});
 		jugadorX.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		jugadorX.setForeground(Color.BLACK);
 		jugadorX.setBounds(171, 67, 215, 32);
@@ -76,13 +86,20 @@ public class PantallaInicio {
 		jugadorX.setColumns(10);
 
 		jugadorO = new JTextField();
+		jugadorO.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()==KeyEvent.VK_ENTER)
+					verificarInicio();
+			}
+		});
 		jugadorO.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		jugadorO.setForeground(Color.BLACK);
 		jugadorO.setColumns(10);
 		jugadorO.setBounds(171, 132, 215, 32);
 		pantallaInicial.getContentPane().add(jugadorO);
 
-		JLabel aviso = new JLabel("");
+		aviso = new JLabel("");
 		aviso.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 18));
 		aviso.setForeground(Color.WHITE);
 		aviso.setBounds(34, 332, 385, 32);
@@ -94,22 +111,14 @@ public class PantallaInicio {
 		botonInicio.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 19));
 		botonInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if((jugadorX.getText().length()<2 || jugadorX.getText().length()>12) || 
-						(jugadorO.getText().length()<2 || jugadorO.getText().length()>12)) {
-					aviso.setText("¡Debe ingresar nombres entre 2 y 12 letras!");
-					}
-				else {	
-					pantallaInicial.setVisible(false);
-					try {
-						TableroVisual tablero=new TableroVisual(jugadorX.getText(),jugadorO.getText());
-						tablero.getTaTeToro().setVisible(true);
-						
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					
-				}	
-
+				verificarInicio();
+			}
+		});
+		botonInicio.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()==KeyEvent.VK_ENTER)
+					verificarInicio();
 			}
 		});
 		botonInicio.setBounds(142, 273, 167, 33);
@@ -120,12 +129,25 @@ public class PantallaInicio {
 		fondo.setBounds(0, 0, 449, 387);
 		pantallaInicial.getContentPane().add(fondo);
 	}
-
+	public void verificarInicio() {
+		if((jugadorX.getText().length()<2 || jugadorX.getText().length()>12) || 
+				(jugadorO.getText().length()<2 || jugadorO.getText().length()>12)) {
+			aviso.setText("¡Debe ingresar nombres entre 2 y 12 letras!");
+			}
+		else {	
+			pantallaInicial.setVisible(false);
+			try {
+				TableroVisual tablero=new TableroVisual(jugadorX.getText(),jugadorO.getText());
+				tablero.getTaTeToro().setVisible(true);
+				
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			
+		}	
+	}
 
 	public JFrame getPantallaInicial() {
 		return pantallaInicial;
 	}
-
-
-	
 }
