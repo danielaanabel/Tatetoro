@@ -35,7 +35,6 @@ public class TableroVisual {
 		jugar=new Jugar();
 		jugar.turnoInicial();
 		initialize();
-		
 	}
 
 	/**
@@ -403,7 +402,7 @@ public class TableroVisual {
 			public void actionPerformed(ActionEvent arg0) {
 				TaTeToro.setVisible(false);
 				try {
-					PantallaInicio inicio=new PantallaInicio();
+					MenuPrincipal inicio=new MenuPrincipal();
 					inicio.getPantallaInicial().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

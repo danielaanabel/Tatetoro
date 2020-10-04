@@ -15,7 +15,8 @@ import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class PantallaInicio {
+
+public class MenuPrincipal {
 
 	private JFrame pantallaInicial;
 	private JTextField jugadorX;
@@ -29,7 +30,7 @@ public class PantallaInicio {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PantallaInicio window = new PantallaInicio();
+					MenuPrincipal window = new MenuPrincipal();
 					window.pantallaInicial.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,8 +42,9 @@ public class PantallaInicio {
 	/**
 	 * Create the application.
 	 */
-	public PantallaInicio() {
+	public MenuPrincipal() {
 		initialize();
+		
 	}
 
 	/**
@@ -51,7 +53,7 @@ public class PantallaInicio {
 	private void initialize() {
 		pantallaInicial = new JFrame();
 		pantallaInicial.setTitle("Ta-Te-Toro");
-		pantallaInicial.setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaInicio.class.getResource("/Juego/img/icono.jpeg")));
+		pantallaInicial.setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/Juego/img/icono.jpeg")));
 		pantallaInicial.setResizable(false);
 		pantallaInicial.setBounds(100, 100, 465, 426);
 		pantallaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -125,7 +127,7 @@ public class PantallaInicio {
 		pantallaInicial.getContentPane().add(botonInicio);
 
 		JLabel fondo = new JLabel("");
-		fondo.setIcon(new ImageIcon(PantallaInicio.class.getResource("/Juego/img/fondo.png")));
+		fondo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Juego/img/fondo.png")));
 		fondo.setBounds(0, 0, 449, 387);
 		pantallaInicial.getContentPane().add(fondo);
 	}
