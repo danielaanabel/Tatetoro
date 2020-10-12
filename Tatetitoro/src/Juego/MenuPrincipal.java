@@ -1,3 +1,4 @@
+
 package Juego;
 
 import java.awt.EventQueue;
@@ -9,6 +10,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Color;
 import javax.swing.JTextField;
 import java.awt.Toolkit;
@@ -127,7 +129,8 @@ public class MenuPrincipal {
 		pantallaInicial.getContentPane().add(botonInicio);
 
 		JLabel fondo = new JLabel("");
-		fondo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/Juego/img/fondo.png")));
+		ImageIcon imagenFondo=new ImageIcon(MenuPrincipal.class.getResource("/Juego/img/fondo.png"));
+		fondo.setIcon(new ImageIcon(imagenFondo.getImage().getScaledInstance(449, 387, Image.SCALE_SMOOTH)));
 		fondo.setBounds(0, 0, 449, 387);
 		pantallaInicial.getContentPane().add(fondo);
 	}

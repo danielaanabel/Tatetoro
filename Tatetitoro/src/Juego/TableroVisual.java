@@ -98,6 +98,7 @@ public class TableroVisual {
 					if(jugar.comprobarGanador()) {
 						ganoAlguien=true;
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
+					
 					}
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
@@ -421,7 +422,6 @@ public class TableroVisual {
 		Fondo.setIcon(new ImageIcon(TableroVisual.class.getResource("/Juego/img/fondo.png")));
 		Fondo.setBounds(0, 0, 449, 387);
 		TaTeToro.getContentPane().add(Fondo);
-
 
 	}
 	
