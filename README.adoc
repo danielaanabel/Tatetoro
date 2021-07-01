@@ -12,3 +12,8 @@ image::ejemplo.jpg[]
 
 .Menú inicial
 image::pantallaInicial.jpg[]
+
+.Ganador
+image::juegoGanador.jpg[]
+
+
