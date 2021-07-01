@@ -20,7 +20,6 @@ public class TableroVisual {
 
 	private JFrame TaTeToro;
 	Jugar jugar;
-	private boolean ganoAlguien;
 	private String jugadorX;
 	private String jugadorO;
 
@@ -31,7 +30,6 @@ public class TableroVisual {
 	public TableroVisual(String jugadorX,String JugadorO) {
 		setJugadorX(jugadorX);
 		setJugadorO(JugadorO);
-		ganoAlguien=false;
 		jugar=new Jugar();
 		jugar.turnoInicial();
 		initialize();
@@ -85,7 +83,7 @@ public class TableroVisual {
 		Button_0.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(Button_0.getText().equals("") && ganoAlguien!=true) {
+				if(jugar.ponerFicha(0, 0)) {
 					if(jugar.turnoActual()=='X') {
 						Button_0.setText("X");
 						Button_0.setForeground(Color.BLUE);
@@ -94,11 +92,8 @@ public class TableroVisual {
 						Button_0.setText("O");
 						Button_0.setForeground(Color.RED);
 					}
-					jugar.ponerFicha(0, 0);
 					if(jugar.comprobarGanador()) {
-						ganoAlguien=true;
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
-					
 					}
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
@@ -119,7 +114,7 @@ public class TableroVisual {
 		Button_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(Button_1.getText().equals("") && ganoAlguien!=true) {
+				if(jugar.ponerFicha(0, 1)) {
 					if(jugar.turnoActual()=='X') {
 						Button_1.setText("X");
 						Button_1.setForeground(Color.BLUE);
@@ -129,10 +124,8 @@ public class TableroVisual {
 						Button_1.setText("O");
 						Button_1.setForeground(Color.RED);
 					}
-					jugar.ponerFicha(0, 1);
 
 					if(jugar.comprobarGanador()) {
-						ganoAlguien=true;
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
@@ -154,7 +147,7 @@ public class TableroVisual {
 		Button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(Button_2.getText().equals("") && ganoAlguien!=true) {
+				if(jugar.ponerFicha(0, 2)) {
 					if(jugar.turnoActual()=='X') {
 						Button_2.setText("X");
 						Button_2.setForeground(Color.BLUE);
@@ -167,7 +160,6 @@ public class TableroVisual {
 					jugar.ponerFicha(0, 2);
 
 					if(jugar.comprobarGanador()) {
-						ganoAlguien=true;
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();	
@@ -189,7 +181,7 @@ public class TableroVisual {
 		Button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(Button_3.getText().equals("") && ganoAlguien!=true) {
+				if(jugar.ponerFicha(1, 0)) {
 					if(jugar.turnoActual()=='X') {
 						Button_3.setText("X");
 						Button_3.setForeground(Color.BLUE);
@@ -199,10 +191,8 @@ public class TableroVisual {
 						Button_3.setForeground(Color.RED);
 
 					}
-					jugar.ponerFicha(1, 0);
-
+					
 					if(jugar.comprobarGanador()) {
-						ganoAlguien=true;
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
@@ -224,7 +214,7 @@ public class TableroVisual {
 		Button_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(Button_4.getText().equals("") && ganoAlguien!=true) {
+				if(jugar.ponerFicha(1, 1)) {
 					if(jugar.turnoActual()=='X') {
 						Button_4.setText("X");
 						Button_4.setForeground(Color.BLUE);
@@ -234,10 +224,9 @@ public class TableroVisual {
 						Button_4.setForeground(Color.RED);
 
 					}
-					jugar.ponerFicha(1, 1);
+					
 
 					if(jugar.comprobarGanador()) {
-						ganoAlguien=true;
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
@@ -259,7 +248,7 @@ public class TableroVisual {
 		Button_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(Button_5.getText().equals("") && ganoAlguien!=true) {
+				if(jugar.ponerFicha(1, 2)) {
 					if(jugar.turnoActual()=='X') {
 						Button_5.setText("X");
 						Button_5.setForeground(Color.BLUE);
@@ -269,10 +258,8 @@ public class TableroVisual {
 						Button_5.setForeground(Color.RED);
 
 					}
-					jugar.ponerFicha(1, 2);
-
+					
 					if(jugar.comprobarGanador()) {
-						ganoAlguien=true;
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
@@ -294,7 +281,7 @@ public class TableroVisual {
 		Button_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(Button_6.getText().equals("") && ganoAlguien!=true) {
+				if(jugar.ponerFicha(2, 0)) {
 					if(jugar.turnoActual()=='X') {
 						Button_6.setText("X");
 						Button_6.setForeground(Color.BLUE);
@@ -304,10 +291,9 @@ public class TableroVisual {
 						Button_6.setForeground(Color.RED);
 
 					}
-					jugar.ponerFicha(2, 0);
+					
 
 					if(jugar.comprobarGanador()) {
-						ganoAlguien=true;
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
@@ -329,7 +315,7 @@ public class TableroVisual {
 		Button_7.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(Button_7.getText().equals("") && ganoAlguien!=true) {
+				if(jugar.ponerFicha(2, 1)) {
 					if(jugar.turnoActual()=='X') {
 						Button_7.setText("X");
 						Button_7.setForeground(Color.BLUE);
@@ -339,10 +325,9 @@ public class TableroVisual {
 						Button_7.setForeground(Color.RED);
 
 					}
-					jugar.ponerFicha(2, 1);
+					
 
 					if(jugar.comprobarGanador()) {
-						ganoAlguien=true;
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
 					}
 					jugar.ProximoTurno();
@@ -364,7 +349,7 @@ public class TableroVisual {
 		Button_8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(Button_8.getText().equals("") && ganoAlguien!=true) {
+				if(jugar.ponerFicha(2, 2)) {
 					if(jugar.turnoActual()=='X') {
 						Button_8.setText("X");
 						Button_8.setForeground(Color.BLUE);
@@ -374,12 +359,9 @@ public class TableroVisual {
 						Button_8.setForeground(Color.RED);
 
 					}
-					jugar.ponerFicha(2, 2);
-
-					if(jugar.comprobarGanador()) {
-						ganoAlguien=true;
+					if(jugar.comprobarGanador())
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
-					}
+
 					jugar.ProximoTurno();
 					labelTurno.setText("Turno: "+jugar.turnoActual());
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());

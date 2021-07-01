@@ -37,11 +37,13 @@ public class Jugar {
 		return cantTurnos;
 	}
 
-	public void ponerFicha(int f, int c) {
+	public boolean ponerFicha(int f, int c) {
 		if(!comprobarGanador() && tablero[f][c]==0) {
 			tablero[f][c]=turno;
 			cantTurnos++;
+			return true;
 			}
+		return false;
 	}
 
 	boolean comprobarGanador(){
