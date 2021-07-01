@@ -23,7 +23,7 @@ public class TableroVisual {
 	private String jugadorX;
 	private String jugadorO;
 
-
+	
 	/**
 	 * Create the application.
 	 */
@@ -94,11 +94,15 @@ public class TableroVisual {
 					}
 					if(jugar.comprobarGanador()) {
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
+						labelTurno.setText(" ");
+						jugador.setText(" ");
 					}
-					jugar.ProximoTurno();
-					labelTurno.setText("Turno: "+jugar.turnoActual());
+					else {
+						jugar.ProximoTurno();
+						labelTurno.setText("Turno: "+jugar.turnoActual());
+						jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
+					}
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
-					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -124,14 +128,17 @@ public class TableroVisual {
 						Button_1.setText("O");
 						Button_1.setForeground(Color.RED);
 					}
-
 					if(jugar.comprobarGanador()) {
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
+						labelTurno.setText(" ");
+						jugador.setText(" ");
 					}
-					jugar.ProximoTurno();
-					labelTurno.setText("Turno: "+jugar.turnoActual());
+					else {
+						jugar.ProximoTurno();
+						labelTurno.setText("Turno: "+jugar.turnoActual());
+						jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
+					}
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
-					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -161,11 +168,15 @@ public class TableroVisual {
 
 					if(jugar.comprobarGanador()) {
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
+						labelTurno.setText(" ");
+						jugador.setText(" ");
 					}
-					jugar.ProximoTurno();	
-					labelTurno.setText("Turno: "+jugar.turnoActual());
+					else {
+						jugar.ProximoTurno();
+						labelTurno.setText("Turno: "+jugar.turnoActual());
+						jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
+					}
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
-					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -191,14 +202,18 @@ public class TableroVisual {
 						Button_3.setForeground(Color.RED);
 
 					}
-					
 					if(jugar.comprobarGanador()) {
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
+						labelTurno.setText(" ");
+						jugador.setText(" ");
 					}
-					jugar.ProximoTurno();
-					labelTurno.setText("Turno: "+jugar.turnoActual());
+					else {
+						jugar.ProximoTurno();
+						labelTurno.setText("Turno: "+jugar.turnoActual());
+						
+						jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
+					}
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
-					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -225,14 +240,17 @@ public class TableroVisual {
 
 					}
 					
-
 					if(jugar.comprobarGanador()) {
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
+						labelTurno.setText(" ");
+						jugador.setText(" ");
 					}
-					jugar.ProximoTurno();
-					labelTurno.setText("Turno: "+jugar.turnoActual());
+					else {
+						jugar.ProximoTurno();
+						labelTurno.setText("Turno: "+jugar.turnoActual());
+						jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
+					}
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
-					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -258,14 +276,17 @@ public class TableroVisual {
 						Button_5.setForeground(Color.RED);
 
 					}
-					
 					if(jugar.comprobarGanador()) {
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
+						labelTurno.setText(" ");
+						jugador.setText(" ");
 					}
-					jugar.ProximoTurno();
-					labelTurno.setText("Turno: "+jugar.turnoActual());
+					else {
+						jugar.ProximoTurno();
+						labelTurno.setText("Turno: "+jugar.turnoActual());
+						jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
+					}
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
-					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -291,15 +312,17 @@ public class TableroVisual {
 						Button_6.setForeground(Color.RED);
 
 					}
-					
-
 					if(jugar.comprobarGanador()) {
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
+						labelTurno.setText(" ");
+						jugador.setText(" ");
 					}
-					jugar.ProximoTurno();
-					labelTurno.setText("Turno: "+jugar.turnoActual());
+					else {
+						jugar.ProximoTurno();
+						labelTurno.setText("Turno: "+jugar.turnoActual());
+						jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
+					}
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
-					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -325,15 +348,17 @@ public class TableroVisual {
 						Button_7.setForeground(Color.RED);
 
 					}
-					
-
 					if(jugar.comprobarGanador()) {
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
+						labelTurno.setText(" ");
+						jugador.setText(" ");
 					}
-					jugar.ProximoTurno();
-					labelTurno.setText("Turno: "+jugar.turnoActual());
+					else {
+						jugar.ProximoTurno();
+						labelTurno.setText("Turno: "+jugar.turnoActual());
+						jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
+					}
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
-					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
@@ -359,13 +384,17 @@ public class TableroVisual {
 						Button_8.setForeground(Color.RED);
 
 					}
-					if(jugar.comprobarGanador())
+					if(jugar.comprobarGanador()) {
 						labelGanador.setText("GANÓ: "+quienJuega(jugar.turnoActual()));
-
-					jugar.ProximoTurno();
-					labelTurno.setText("Turno: "+jugar.turnoActual());
+						labelTurno.setText(" ");
+						jugador.setText(" ");
+					}
+					else {
+						jugar.ProximoTurno();
+						labelTurno.setText("Turno: "+jugar.turnoActual());
+						jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
+					}
 					contador.setText("Turnos jugados: "+jugar.turnosJugados());
-					jugador.setText("Juega: "+quienJuega(jugar.turnoActual()));
 				}
 			}
 		});
